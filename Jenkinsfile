@@ -26,7 +26,7 @@ pipeline {
             sh "docker build -t calculator ."
           }
         }
-        stage("Docker build") {
+        stage("Docker run") {
           steps {
             sh " docker run -d -p 8765:8080"
           }
