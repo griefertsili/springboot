@@ -28,7 +28,7 @@ pipeline {
         }
         stage("Docker run") {
           steps {
-            sh " docker run -d -p 8765:8080"
+            sh " docker run -d -p 8765:8080 calculator"
           }
         }
        
