@@ -23,12 +23,17 @@ pipeline {
         }
         stage("Docker build") {
           steps {
-            sh "docker build -t calculator ."
+            sh "docker build -t 192.168.1.2:5000/calculator ."
+          }
+        }
+        stage("Docker push") {
+          steps {
+            sh "docker push 192.168.1.2:5000/calculator"
           }
         }
         stage("Docker run") {
           steps {
-            sh " docker run -d -p 8765:8080 calculator"
+            sh "docker run -d -p 8765:8080 --name calculator 192.168.1.2:5000/calculator"
           }
         }
        
