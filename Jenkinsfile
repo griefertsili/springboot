@@ -21,6 +21,17 @@ pipeline {
                 sh "./mvnw package"
             }
         }
+        stage("Docker build") {
+          steps {
+            sh "docker build -t calculator ."
+          }
+        }
+        stage("Docker build") {
+          steps {
+            sh " docker run -d -p 8765:8080"
+          }
+        }
+       
         
     }
 }
